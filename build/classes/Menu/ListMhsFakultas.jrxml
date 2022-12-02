@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="814" leftMargin="14" rightMargin="14" topMargin="14" bottomMargin="14">
+	<property name="ireport.zoom" value="1.3310000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="tSearchF" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     mhs.`NIM` AS mhs_NIM,
+     mhs.`nmMhs` AS mhs_nmMhs,
+     mhs.`jk` AS mhs_jk,
+     mhs.`alamat` AS mhs_alamat,
+     mhs.`ntMhs` AS mhs_ntMhs,
+     mhs.`fakultas` AS mhs_fakultas,
+     mhs.`prodi` AS mhs_prodi,
+     mhs.`sms` AS mhs_sms
+FROM
+     `mhs` mhs
+WHERE
+     mhs.`fakultas` = $P{tSearchF}]]>
+	</queryString>
+	<field name="mhs_NIM" class="java.lang.String"/>
+	<field name="mhs_nmMhs" class="java.lang.String"/>
+	<field name="mhs_jk" class="java.lang.String"/>
+	<field name="mhs_alamat" class="java.lang.String"/>
+	<field name="mhs_ntMhs" class="java.lang.String"/>
+	<field name="mhs_fakultas" class="java.lang.String"/>
+	<field name="mhs_prodi" class="java.lang.String"/>
+	<field name="mhs_sms" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="74" splitType="Stretch">
+			<staticText>
+				<reportElement x="265" y="22" width="273" height="32"/>
+				<textElement textAlignment="Center">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Daftar Mahasiswa/i]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="78" splitType="Stretch">
+			<printWhenExpression><![CDATA[$P{tSearchF}]]></printWhenExpression>
+			<staticText>
+				<reportElement x="19" y="30" width="56" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fakultas :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="75" y="30" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{tSearchF}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="18" y="14" width="64" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NIM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="89" y="14" width="157" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Mahasiswa/i]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="14" width="100" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jenis Kelamin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="361" y="14" width="130" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="501" y="14" width="118" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prodi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="627" y="14" width="68" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Semester]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="704" y="14" width="92" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. Telp]]></text>
+			</staticText>
+			<line>
+				<reportElement x="18" y="35" width="778" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<printWhenExpression><![CDATA[$P{tSearchF}]]></printWhenExpression>
+			<textField>
+				<reportElement x="18" y="8" width="64" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{mhs_NIM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="89" y="8" width="157" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{mhs_nmMhs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="254" y="8" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{mhs_jk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="361" y="8" width="130" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{mhs_alamat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="501" y="8" width="118" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{mhs_prodi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="627" y="8" width="68" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{mhs_sms}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="704" y="8" width="92" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{mhs_ntMhs}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

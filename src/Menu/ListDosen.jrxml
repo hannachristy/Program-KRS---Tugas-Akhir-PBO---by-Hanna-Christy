@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.9487171000000014"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="tSearch" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     dosen.`kodeDosen` AS dosen_kodeDosen,
+     dosen.`nmDosen` AS dosen_nmDosen,
+     dosen.`ntDosen` AS dosen_ntDosen,
+     dosen.`emailDosen` AS dosen_emailDosen,
+     dosen.`fakultas` AS dosen_fakultas
+FROM
+     `dosen` dosen
+WHERE
+     dosen.`fakultas` = $P{tSearch}]]>
+	</queryString>
+	<field name="dosen_kodeDosen" class="java.lang.String"/>
+	<field name="dosen_nmDosen" class="java.lang.String"/>
+	<field name="dosen_ntDosen" class="java.lang.Integer"/>
+	<field name="dosen_emailDosen" class="java.lang.String"/>
+	<field name="dosen_fakultas" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="74" splitType="Stretch">
+			<staticText>
+				<reportElement x="144" y="20" width="273" height="32"/>
+				<textElement textAlignment="Center">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[List Dosen]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="47" splitType="Stretch">
+			<printWhenExpression><![CDATA[$P{tSearch}]]></printWhenExpression>
+			<staticText>
+				<reportElement x="19" y="10" width="46" height="20"/>
+				<textElement/>
+				<text><![CDATA[Fakultas :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="65" y="10" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{tSearch}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="16" y="12" width="66" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kode Dosen]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="258" y="12" width="94" height="20"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[No. Telp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="12" width="177" height="20"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<line>
+				<reportElement x="16" y="36" width="517" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="87" y="12" width="167" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Dosen]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<printWhenExpression><![CDATA[$P{tSearch}]]></printWhenExpression>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="16" y="9" width="66" height="20"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dosen_kodeDosen}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="258" y="9" width="94" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dosen_ntDosen}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="356" y="9" width="177" height="20"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dosen_emailDosen}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="87" y="9" width="167" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dosen_nmDosen}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>
